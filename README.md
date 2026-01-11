@@ -21,8 +21,31 @@
    - Создайте `.dockerignore` файл для исключения ненужных файлов
    - Используйте ```CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"]``` для запуска
    - Протестируйте корректность сборки 
+
+```
+FROM python:3.12-slim
+
+WORKDIR /app
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+COPY . .
+
+# Запускаем приложение с помощью uvicorn, делая его доступным по сети
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"] 
+```
+
+![Scr-1](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img1.png)
+
+![Scr-2](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img2.png)
+
 3. (Необязательная часть, *) Изучите инструкцию в проекте и запустите web-приложение без использования docker, с помощью venv. (Mysql БД можно запустить в docker run).
+
+![Scr-3](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img3.png)
+
 4. (Необязательная часть, *) Изучите код приложения и добавьте управление названием таблицы через ENV переменную.
+
+![Scr-4](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img4.png)
+
 ---
 ### ВНИМАНИЕ!
 !!! В процессе последующего выполнения ДЗ НЕ изменяйте содержимое файлов в fork-репозитории! Ваша задача ДОБАВИТЬ 5 файлов: ```Dockerfile.python```, ```compose.yaml```, ```.gitignore```, ```.dockerignore```,```bash-скрипт```. Если вам понадобилось внести иные изменения в проект - вы что-то делаете неверно!
@@ -50,6 +73,12 @@
 5. Подключитесь к БД mysql с помощью команды ```docker exec -ti <имя_контейнера> mysql -uroot -p<пароль root-пользователя>```(обратите внимание что между ключем -u и логином root нет пробела. это важно!!! тоже самое с паролем) . Введите последовательно команды (не забываем в конце символ ; ): ```show databases; use <имя вашей базы данных(по-умолчанию example)>; show tables; SELECT * from requests LIMIT 10;```.
 
 6. Остановите проект. В качестве ответа приложите скриншот sql-запроса.
+
+[Простыня](compose.yaml)
+
+![Scr-5](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img5.png)
+
+![Scr-6](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img6.png)
 
 ## Задача 4
 1. Запустите в Yandex Cloud ВМ (вам хватит 2 Гб Ram).
