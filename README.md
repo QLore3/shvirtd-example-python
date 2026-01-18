@@ -58,9 +58,9 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"]
 4. Просканируйте образ на уязвимости.
 5. В качестве ответа приложите отчет сканирования.
 
-![Scr-7](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img4.png)
-![Scr-8](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img4.png)
-![Scr-9](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img4.png)
+![Scr-7](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img7.png)
+![Scr-8](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img8.png)
+![Scr-9](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img9.png)
 
 
 ## Задача 3
