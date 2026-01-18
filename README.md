@@ -143,6 +143,12 @@ chmod +x ./terraform
 
 ![Scr-16](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img16.png)
 
+```bash
+sudo mv ./terraform /usr/local/bin/terraform
+sudo chmod +x /usr/local/bin/terraform
+terraform version
+```
+
 ## Задача 6.2 (**)
 Предложите способ извлечь файл из контейнера, используя только команду docker build и любой Dockerfile.  
 Предоставьте скриншоты  действий .
