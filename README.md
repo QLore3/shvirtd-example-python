@@ -114,9 +114,34 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"]
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
 Предоставьте скриншоты  действий .
 
+```bash
+docker run --rm -it   -v /var/run/docker.sock:/var/run/docker.sock   docker.io/wagoodman/dive:latest hashicorp/terraform:latest
+```
+
+![Scr-14](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img14.png)
+
+```bash
+docker save -o terraform-image.tar hashicorp/terraform:latest
+```
+
+```bash
+mkdir -p rootfs
+jq -r '.[0].Layers[]' tfimg/manifest.json | while read -r layer; do
+  tar -xf "tfimg/$layer" -C rootfs
+done
+```
+
+```bash
+cp -a rootfs/bin/terraform ./terraform
+chmod +x ./terraform
+```
+![Scr-15](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img15.png)
+
 ## Задача 6.1
 Добейтесь аналогичного результата, используя docker cp.  
 Предоставьте скриншоты  действий .
+
+![Scr-16](https://github.com/QLore3/shvirtd-example-python/blob/main/img/img16.png)
 
 ## Задача 6.2 (**)
 Предложите способ извлечь файл из контейнера, используя только команду docker build и любой Dockerfile.  
